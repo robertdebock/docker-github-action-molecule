@@ -1,4 +1,4 @@
-FROM alpine:3
+FROM python:alpine
 
 WORKDIR /github/workspace
 
