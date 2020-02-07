@@ -7,4 +7,5 @@ RUN apk add --update --no-cache python py-pip docker git gcc && \
     pip install molecule[docker] tox && \
     apk del builddeps
 
-CMD cd ${GITHUB_REPOSITORY} ; test -f tox.ini && tox ${options} || molecule test
+CMD cd ${GITHUB_REPOSITORY} ; \
+    test -f tox.ini && (tox ${options}) || (molecule test)
