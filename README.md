@@ -5,7 +5,9 @@ A container that is used for [GitHub actions molecule](https://github.com/market
 This container contains:
 - molecule
 - docker
+- tox
 
 The default behaviour is to:
 - See if `tox.ini` exists -> Run `tox`
 - Otherwise -> Run `molecule test`
+- Retry either (`tox` or `molecule`) 5 times.
