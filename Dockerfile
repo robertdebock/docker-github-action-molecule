@@ -2,7 +2,12 @@ FROM fedora:31
 
 WORKDIR /github/workspace
 
-RUN dnf install -y python3-pip gcc python3-devel git ; \
+# These dependecies are required to install pip packages.
+RUN dnf install -y python3-pip gcc python3-devel ; \
+    dnf clean all
+
+# These dependencies are required to run the CMD.
+RUN dnf install -y git-core ;\
     dnf clean all
 
 RUN pip install molecule[docker] tox
