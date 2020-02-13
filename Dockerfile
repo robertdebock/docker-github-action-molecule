@@ -2,7 +2,7 @@ FROM fedora:31
 
 WORKDIR /github/workspace
 
-RUN dnf install -y python3-pip gcc python3-devel ; \
+RUN dnf install -y python3-pip gcc python3-devel git ; \
     dnf clean all
 
 RUN pip install molecule[docker] tox

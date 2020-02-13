@@ -3,8 +3,9 @@
 A container that is used for [GitHub actions molecule](https://github.com/marketplace/actions/molecule-action).
 
 This container contains:
-- molecule
 - docker
+- git
+- molecule
 - tox
 
 The default behaviour is to:
