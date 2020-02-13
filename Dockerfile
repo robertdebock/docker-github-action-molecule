@@ -12,4 +12,4 @@ RUN dnf install -y docker git-core ;\
 
 RUN pip install molecule[docker] tox
 
-CMD cd ${GITHUB_REPOSITORY} ; a=1 ; until [ $a -gt 5 ] ; do if [ -f tox.ini ] ; then tox ${options} && break ; else molecule test && break ; fi ; a=$((a + 1)) ; done
+CMD retry() { a=1 ; echo "Attempt ${a}" ; until $@ ; do if [ $a -ge 5 ] ; then return 1 ; else a=$(($a+1)) ; echo "Attempt ${a}" ; fi; done; } ; if [ -f tox.ini ] ; then retry tox ${options} ; else retry molecule test ; fi
