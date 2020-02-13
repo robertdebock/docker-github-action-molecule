@@ -1,8 +1,9 @@
-FROM python:3.7-alpine
+FROM fedora:31
 
 WORKDIR /github/workspace
 
-RUN apk add --update --no-cache python py-pip docker git gcc musl-dev libffi-dev make openssl-dev python-dev
+RUN dnf install -y python3-pip gcc python3-devel ; \
+    dnf clean all
 
 RUN pip install molecule[docker] tox
 
