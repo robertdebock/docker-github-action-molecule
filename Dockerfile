@@ -10,6 +10,6 @@ RUN dnf install -y gcc python3-devel python3-pip; \
 RUN dnf install -y docker git-core ;\
     dnf clean all
 
-RUN pip install molecule[docker]==3.0.1 tox
+RUN pip install tox docker
 
 CMD cd ${GITHUB_REPOSITORY} ; retry() { a=1 ; echo "Attempt ${a}" ; until $@ ; do if [ $a -ge 5 ] ; then return 1 ; else a=$(($a+1)) ; echo "Attempt ${a}" ; fi; done; } ; if [ -f tox.ini ] ; then retry tox ${options} ; else retry molecule test ; fi
