@@ -1,5 +1,7 @@
 FROM fedora:31
 
+LABEL maintainer="Robert de Bock <robert@meinit.nl>"
+
 WORKDIR /github/workspace
 
 # These dependecies are required to install pip packages.
