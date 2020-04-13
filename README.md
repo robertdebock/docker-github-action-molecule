@@ -2,6 +2,8 @@
 
 A container that is used for [GitHub actions molecule](https://github.com/marketplace/actions/molecule-action).
 
+[![github-action-molecule build status](https://img.shields.io/docker/cloud/build/robertdebock/github-action-molecule.svg)](https://hub.docker.com/repository/docker/robertdebock/github-action-molecule)
+
 This container contains:
 - [docker](https://www.docker.com/) - Used by molecule to start instances using the `docker` driver.
 - [git](https://git-scm.com/) - Used to pull data from a repository.
