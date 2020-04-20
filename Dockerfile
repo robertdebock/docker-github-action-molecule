@@ -5,7 +5,7 @@ LABEL maintainer="Robert de Bock <robert@meinit.nl>"
 WORKDIR /github/workspace
 
 # These dependecies are required to install pip packages.
-RUN dnf install -y gcc python3-devel python3-pip; \
+RUN dnf install -y gcc python3-devel python3-pip python3-selinux; \
     dnf clean all
 
 # These dependencies are required to run the CMD.
