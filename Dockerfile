@@ -4,12 +4,13 @@ LABEL maintainer="Robert de Bock <robert@meinit.nl>"
 
 WORKDIR /github/workspace
 
-# These dependecies are required to install pip packages.
-RUN dnf install -y gcc python3-devel python3-pip python3-libselinux; \
-    dnf clean all
-
-# These dependencies are required to run the CMD.
-RUN dnf install -y docker git-core ;\
+RUN dnf install -y docker \
+                   gcc \
+                   git-core \
+                   python3-devel \
+                   python3-pip \
+                   python3-libselinux \
+                   python3-jmespath.noarch ; \
     dnf clean all
 
 RUN pip install tox docker ansible-lint "molecule>=3,<4"
