@@ -13,4 +13,4 @@ This container contains:
 The default behaviour is to:
 - See if `tox.ini` exists -> Run `tox`
 - Otherwise -> Run `molecule test`
-- Retry either (`tox` or `molecule`) 5 times.
+- Retry either (`tox` or `molecule`) 3 times.
