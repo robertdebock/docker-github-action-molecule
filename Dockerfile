@@ -13,6 +13,6 @@ RUN dnf install -y docker \
                    python3-jmespath.noarch ; \
     dnf clean all
 
-RUN pip install tox docker ansible-lint "molecule>=3,<4"
+RUN pip install tox docker ansible-lint "molecule>=3,<4" testinfra
 
 CMD cd ${GITHUB_REPOSITORY} ; if [ -f tox.ini -a ${command:-test} = test ] ; then tox ${options} ; else PY_COLORS=1 ANSIBLE_FORCE_COLOR=1 molecule ${command:-test} ; fi
