@@ -15,4 +15,4 @@ RUN dnf install -y docker \
 
 RUN pip install tox docker ansible-lint "molecule>=3,<4" testinfra
 
-CMD cd ${GITHUB_REPOSITORY} ; if [ -f tox.ini -a ${command:-test} = test ] ; then n=0 ; until [ "$n" = 3 ] ; do tox ${options} && break ; n=$((n+1)) ; done ; else n=0 ; until [ "$n" = 3 ] ; do PY_COLORS=1 ANSIBLE_FORCE_COLOR=1 molecule ${command:-test} && break ; n=$((n+1)) ; done ; fi
+CMD cd ${GITHUB_REPOSITORY} ; function retry { counter=0 ; until "$@" ; do exit=$? ; counter=$(($counter + 1)) ; if [ $counter -ge 3 ] ; then return $exit ; fi ; done ; return 0; } ; cd ${GITHUB_REPOSITORY} ; if [ -f tox.ini -a ${command:-test} = test ] ; then retry tox ${options} ; else PY_COLORS=1 ANSIBLE_FORCE_COLOR=1 retry molecule ${command:-test} ; fi
