@@ -14,3 +14,5 @@ The default behaviour is to:
 - See if `tox.ini` exists -> Run `tox`
 - Otherwise -> Run `molecule test`
 - Retry either (`tox` or `molecule`) 3 times.
+- Run `test` if `command` is not set.
+- Test the `default` scenario if `scenario` in not set.
