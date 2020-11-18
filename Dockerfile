@@ -1,4 +1,4 @@
-FROM fedora:32
+FROM fedora:33
 
 LABEL maintainer="Robert de Bock <robert@meinit.nl>"
 
