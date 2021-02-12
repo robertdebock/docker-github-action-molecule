@@ -16,3 +16,5 @@ The default behaviour is to:
 - Retry either (`tox` or `molecule`) 3 times.
 - Run `test` if `command` is not set.
 - Test the `default` scenario if `scenario` in not set.
+
+Read how to [test locally](TESTING.md).
