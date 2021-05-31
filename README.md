@@ -1,6 +1,6 @@
 # docker-github-action-molecule
 
-A container that is used for [GitHub actions molecule](https://github.com/marketplace/actions/molecule-action).
+A container that is used for [GitHub actions molecule](https://github.com/marketplace/actions/test-ansible-roles-with-molecule).
 
 [![github-action-molecule build status](https://img.shields.io/docker/cloud/build/robertdebock/github-action-molecule.svg)](https://hub.docker.com/repository/docker/robertdebock/github-action-molecule)
 
