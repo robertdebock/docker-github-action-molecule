@@ -2,6 +2,7 @@ FROM fedora:34
 
 LABEL maintainer="Robert de Bock <robert@meinit.nl>"
 LABEL build-date="2021-05-31T11:10:40Z"
+LABEL build_date="2021-09-24"
 
 WORKDIR /github/workspace
 
