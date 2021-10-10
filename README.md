@@ -9,6 +9,7 @@ This container contains:
 - [git](https://git-scm.com/) - Used to pull data from a repository.
 - [molecule](https://molecule.readthedocs.io/en/latest/) version 3.x.x - Used to orchestrate the tests
 - [tox](https://tox.readthedocs.io/en/latest/) - Used to test multiple version of ansible if `tox.ini` exists.
+- [ansible-later](https://ansible-later.geekdocs.de/usage/) - A best practice scanner and linting tool.
 
 The default behaviour is to:
 - See if `tox.ini` exists -> Run `tox`

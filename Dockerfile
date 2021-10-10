@@ -13,8 +13,8 @@ RUN dnf install -y docker \
                    python3-pip \
                    python3-libselinux \
                    python3-jmespath.noarch ; \
-    dnf clean all
+    dnf clean all ;
 
-RUN pip install tox docker "molecule[ansible,docker,lint]" testinfra
+RUN pip install tox docker "molecule[ansible,docker,lint]" testinfra ansible-later
 
 CMD function retry { counter=0 ; until "$@" ; do exit=$? ; counter=$(($counter + 1)) ; if [ $counter -ge ${max_failures:-3} ] ; then return $exit ; fi ; done ; return 0; } ; cd ${GITHUB_REPOSITORY:-.} ; if [ -f tox.ini -a ${command:-test} = test ] ; then retry tox ${options} ; else PY_COLORS=1 ANSIBLE_FORCE_COLOR=1 retry molecule ${command:-test} --scenario-name ${scenario:-default}; fi
