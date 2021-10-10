@@ -18,7 +18,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Show GITHUB_REF
         run: echo "${GITHUB_REF}"
-      - name Show tag
+      - name Show variable tag
         run: short=${GITHUB_REF##*/} echo "tag=${short/master/latest}"
       - name: Set tag
         run: short=${GITHUB_REF##*/} echo "tag=${short/master/latest}" >> $GITHUB_ENV
