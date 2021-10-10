@@ -20,6 +20,10 @@ jobs:
         run: echo "${GITHUB_REF}"
       - name: Set tag
         run: short=${GITHUB_REF##*/} echo "tag=${short/master/latest}" >> $GITHUB_ENV
+      - name: Show GITHUB_ENV file
+        run: cat "${GITHUB_ENV}"
+      - name: Show GITHUB_ENV
+        run: echo "${GITHUB_ENV}"
       - name: Show tag
         run: echo "${tag}"
       - name: Build and push
