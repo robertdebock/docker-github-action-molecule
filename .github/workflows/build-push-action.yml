@@ -16,8 +16,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Set short
+        run: echo "short=${GITHUB_REF##*/}" >> $GITHUB_ENV
       - name: Set tag
-        run: short=${GITHUB_REF##*/} echo "tag=${short/master/latest}" >> "${GITHUB_ENV}"
+        run: echo "tag=${short/master/latest}" >> "${GITHUB_ENV}"
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
