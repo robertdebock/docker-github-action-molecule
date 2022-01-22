@@ -14,7 +14,7 @@ docker run --privileged \
   command="lint" \
   --env GITHUB_REPOSITORY="robertdebock/$(basename  $(pwd))" \
   --env ANSIBLE_ROLES_PATH="../" \
-  ${docker_hash} \
+  ${docker_hash}
 ```
 4. Try role:
 
