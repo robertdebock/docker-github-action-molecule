@@ -23,6 +23,7 @@ RUN pip install ansible-core \
                 ansible-lint
 
 RUN ansible-galaxy collection install community.docker
+RUN ansible-galaxy collection install community.general
 
 ADD cmd.sh /cmd.sh
 
