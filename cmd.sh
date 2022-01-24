@@ -37,6 +37,13 @@ else
   # No `tox.ini`?, just run molecule.
   echo "ACTION: running (retry) molecule."
   PY_COLORS=1 ANSIBLE_FORCE_COLOR=1 retry molecule ${command:-test} --scenario-name ${scenario:-default}
-fi
+fi || status="failed"
 
-echo "ACTION: Thanks for using this action."
+
+# Finish with the correct failure code.
+if [ "${status}" == "failed" ] ; then
+  echo "ACTION: Thanks for using this action, good luck troubleshooting."
+  exit 1
+else
+  echo "ACTION: Thanks for using this action."
+fi
