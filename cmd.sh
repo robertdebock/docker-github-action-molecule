@@ -19,14 +19,6 @@ retry() {
 # Go into the repository or assume it's here. (`.`)
 cd ${GITHUB_REPOSITORY:-.}
 
-# Download the collections for the `verify.yml` playbook.
-if [ -f requirements.yml ] ; then
-  echo "ACTION: Installing requirements found in requirements.yml."
-  ansible-galaxy install -r requirements.yml
-else
-  echo "ACTION: No requirements.yml found, skipping install."
-fi
-
 # Test the role.
 if [ -f tox.ini -a ${command:-test} = test ] ; then
   # If `tox.ini` exists, run tox.
