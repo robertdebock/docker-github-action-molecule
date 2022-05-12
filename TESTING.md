@@ -10,8 +10,9 @@ To test the container before publication, run these steps.
 docker run --privileged \
   --volume $(pwd):/github/workspace/robertdebock/$(basename $(pwd)):z \
   --volume /var/run/docker.sock:/var/run/docker.sock:z \
-  --tty --interactive --env \
-  command="lint" \
+  --tty \
+  --interactive \
+  --env command="lint" \
   --env GITHUB_REPOSITORY="robertdebock/$(basename  $(pwd))" \
   --env ANSIBLE_ROLES_PATH="../" \
   ${docker_hash}
@@ -22,7 +23,8 @@ docker run --privileged \
 docker run --privileged \
   --volume $(pwd):/github/workspace/robertdebock/$(basename $(pwd)):z \
   --volume /var/run/docker.sock:/var/run/docker.sock:z \
-  --tty --interactive \
+  --tty \
+  --interactive \
   --env GITHUB_REPOSITORY="robertdebock/$(basename $(pwd))" \
   --env ANSIBLE_ROLES_PATH="../" \
   ${docker_hash}
