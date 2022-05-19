@@ -1,4 +1,4 @@
-ansible~=5.7.1
+ansible~=5.8.0
 ansible-lint~=6.2.1
 docker~=5.0.3
 molecule~=3.6.1
