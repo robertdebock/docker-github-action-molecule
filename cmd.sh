@@ -7,9 +7,9 @@ retry() {
   counter=0
   until "$@" ; do
     exit=$?
-    counter=$(($counter + 1))
+    counter=$((counter + 1))
     echo "ACTION: retry attempt ${counter}."
-    if [ $counter -ge ${max_failures:-3} ] ; then
+    if [ "$counter" -ge "${max_failures:-3}" ] ; then
       return $exit
     fi
   done
@@ -17,23 +17,23 @@ retry() {
 }
 
 # Go into the repository or assume it's here. (`.`)
-cd ${GITHUB_REPOSITORY:-.}
+cd "${GITHUB_REPOSITORY:-.}" || exit
 
 # Test the role.
-if [ -f tox.ini -a ${command:-test} = test ] ; then
+if [ -f tox.ini ] && [ "${command:-test}" = test ] ; then
   # If `tox.ini` exists, run tox.
   # (Tox will run molecule with a specified Ansible version.)
   echo "ACTION: running (retry) tox."
-  retry tox ${options}
+  retry tox
 else
   # No `tox.ini`?, just run molecule.
   echo "ACTION: running (retry) molecule."
-  PY_COLORS=1 ANSIBLE_FORCE_COLOR=1 retry molecule ${command:-test} --scenario-name ${scenario:-default}
+  PY_COLORS=1 ANSIBLE_FORCE_COLOR=1 retry molecule "${command:-test}" --scenario-name "${scenario:-default}"
 fi || status="failed"
 
 
 # Finish with the correct failure code.
-if [ "${status}" == "failed" ] ; then
+if [ "${status}" = "failed" ] ; then
   echo "ACTION: Thanks for using this action, good luck troubleshooting."
   exit 1
 else
