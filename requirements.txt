@@ -1,7 +1,7 @@
 ansible~=6.0.0
 ansible-lint~=6.2.1
 docker~=5.0.3
-molecule~=3.6.1
+molecule~=4.0.0
 molecule-docker~=1.1.0
 tox~=3.25.0
 testinfra~=6.0.0
