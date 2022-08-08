@@ -3,6 +3,6 @@ ansible-lint~=6.3.0
 docker~=5.0.3
 molecule~=4.0.0
 molecule-docker~=1.1.0
-tox~=3.25.0
+tox~=3.25.1
 testinfra~=6.0.0
 yamllint~=1.26.3
