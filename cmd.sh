@@ -8,7 +8,7 @@ retry() {
   until "$@" ; do
     exit=$?
     counter=$((counter + 1))
-    echo "ACTION: retry attempt ${counter}."
+    echo "ACTION: Retry attempt ${counter}."
     if [ "$counter" -ge "${max_failures:-3}" ] ; then
       return $exit
     fi
@@ -23,11 +23,11 @@ cd "${GITHUB_REPOSITORY:-.}" || exit
 if [ -f tox.ini ] && [ "${command:-test}" = test ] ; then
   # If `tox.ini` exists, run tox.
   # (Tox will run molecule with a specified Ansible version.)
-  echo "ACTION: running (retry) tox."
+  echo "ACTION: Running (retry) tox."
   retry tox
 else
   # No `tox.ini`?, just run molecule.
-  echo "ACTION: running (retry) molecule."
+  echo "ACTION: Running (retry) molecule."
   PY_COLORS=1 ANSIBLE_FORCE_COLOR=1 retry molecule "${command:-test}" --scenario-name "${scenario:-default}"
 fi || status="failed"
 
