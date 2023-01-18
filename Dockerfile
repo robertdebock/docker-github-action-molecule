@@ -11,7 +11,8 @@ RUN dnf install -y docker \
                    python3-devel \
                    python3-libselinux \
                    python3-jmespath \
-                   python3-pip ; \
+                   python3-pip \
+                   rsync ; \
     dnf clean all
 
 ADD requirements.txt /requirements.txt
