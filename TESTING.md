@@ -12,7 +12,7 @@ docker run --privileged \
   --volume /var/run/docker.sock:/var/run/docker.sock:z \
   --tty \
   --interactive \
-  --env command="lint" \
+  --env command="syntax" \
   --env GITHUB_REPOSITORY="robertdebock/$(basename  $(pwd))" \
   --env ANSIBLE_ROLES_PATH="../" \
   ${docker_hash}
