@@ -17,6 +17,7 @@ docker run --privileged \
   --env ANSIBLE_ROLES_PATH="../" \
   ${docker_hash}
 ```
+
 4. Try role:
 
 ```shell
