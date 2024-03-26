@@ -1,22 +1,21 @@
-FROM fedora:38
+FROM alpine:latest
 
 LABEL maintainer="Robert de Bock <robert@meinit.nl>"
-LABEL build_date="2023-09-24"
+LABEL build_date="2024-03-26"
 
 WORKDIR /github/workspace
 
-RUN dnf install -y docker \
+RUN apk add --no-cache docker \
                    gcc \
-                   git-core \
-                   python3-devel \
-                   python3-libselinux \
-                   python3-jmespath \
-                   python3-pip \
-                   rsync ; \
-    dnf clean all
+                   git \
+                   python3-dev \
+                   py3-jmespath \
+                   py3-pip \
+                   rsync && \
+    rm -rf /var/cache/apk/*
 
 ADD requirements.txt /requirements.txt
-RUN python3 -m pip install -r /requirements.txt && \
+RUN python3 -m pip install --break-system-packages --no-cache-dir -r /requirements.txt && \
     python3 -m pip cache purge
 
 ADD cmd.sh /cmd.sh
