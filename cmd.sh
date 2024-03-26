@@ -2,10 +2,6 @@
 
 echo "ACTION: Welcome to the molecule action."
 
-# Switch into the Pythonvirtual environment.
-/bin/sh /opt/venv/bin/activate
-export PATH=/opt/venv/bin:$PATH
-
 # A function to retry an action a few times until succesful.
 retry() {
   counter=0
