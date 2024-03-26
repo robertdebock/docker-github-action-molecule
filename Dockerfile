@@ -19,7 +19,7 @@ RUN apk add --no-cache docker \
     /opt/venv/bin/python -m pip install --no-cache-dir -r /requirements.txt && \
     /opt/venv/bin/python -m pip cache purge
 
-ENV PATH="${PATH}:/opt/venv/bin"
+ENV PATH="/opt/venv/bin:${PATH}"
 
 ADD cmd.sh /cmd.sh
 CMD sh /cmd.sh
