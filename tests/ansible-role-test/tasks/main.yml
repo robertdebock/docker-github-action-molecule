@@ -1,0 +1,6 @@
+---
+# tasks file for test
+
+- name: Show something
+  ansible.builtin.debug:
+    msg: "Hello, world!"
