@@ -8,7 +8,7 @@ retry() {
   until "$@" ; do
     exit=$?
     counter=$((counter + 1))
-    echo "ACTION: Retry attempt ${counter}."
+    echo "ACTION: Retry attempt ${counter}/${max_failures:-3}."
     if [ "$counter" -ge "${max_failures:-3}" ] ; then
       return $exit
     fi
