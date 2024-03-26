@@ -1,6 +1,6 @@
 ansible~=9.1.0
 ansible-lint~=6.22.1
-docker~=6.1.3
+docker~=7.0.0
 molecule~=6.0.3
 molecule-plugins[docker]~=23.5.0
 tox~=4.11.4
