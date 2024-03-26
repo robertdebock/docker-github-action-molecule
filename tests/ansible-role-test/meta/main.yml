@@ -2,7 +2,7 @@
 galaxy_info:
   author: robertdebock
   role_name: test
-  description: Install and configure test on your system.
+  description: A test role.
   license: Apache-2.0
   company: none
   min_ansible_version: "2.12"
