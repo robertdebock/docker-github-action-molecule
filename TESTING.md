@@ -2,9 +2,9 @@
 
 To test the container before publication, run these steps.
 
-1. `docker_hash=$(docker build . -q)`.
-2. Go to a role-directory, like `ansible-role-test`.
-3. Try lint:
+1: `docker_hash=$(docker build . -q)`.
+2: Go to a role-directory, like `ansible-role-test`.
+3: Try lint:
 
 ```shell
 cd tests/ansible-role-test
@@ -20,7 +20,7 @@ docker run --privileged \
 cd ../
 ```
 
-4. Try role:
+4: Try role:
 
 ```shell
 cd tests/ansible-role-test
