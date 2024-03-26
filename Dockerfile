@@ -20,8 +20,8 @@ ADD requirements.txt /requirements.txt
 
 RUN /opt/venv/bin/pip install -r /requirements.txt
 
-RUN /opt/venv/bin/pythonpython3 -m pip install --no-cache-dir -r /requirements.txt && \
-    /opt/venv/bin/pythonpython3 -m pip cache purge
+RUN /opt/venv/bin/python -m pip install --no-cache-dir -r /requirements.txt && \
+    /opt/venv/bin/python -m pip cache purge
 
 ADD cmd.sh /cmd.sh
 CMD sh /cmd.sh
