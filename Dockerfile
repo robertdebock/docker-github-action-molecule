@@ -18,7 +18,7 @@ RUN python3 -m venv /opt/venv
 
 ADD requirements.txt /requirements.txt
 
-RUN /opt/venv/bin/pip install -r requirements.txt
+RUN /opt/venv/bin/pip install -r /requirements.txt
 
 RUN /opt/venv/bin/pythonpython3 -m pip install --no-cache-dir -r /requirements.txt && \
     /opt/venv/bin/pythonpython3 -m pip cache purge
