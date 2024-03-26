@@ -5,20 +5,18 @@ LABEL build_date="2024-03-26"
 
 WORKDIR /github/workspace
 
-RUN apk add --no-cache docker \
-                   gcc \
-                   git \
-                   python3-dev \
-                   py3-jmespath \
-                   py3-pip \
-                   rsync && \
-    rm -rf /var/cache/apk/*
-
-RUN python3 -m venv /opt/venv
-
 ADD requirements.txt /requirements.txt
 
-RUN /opt/venv/bin/python -m pip install --no-cache-dir -r /requirements.txt && \
+RUN apk add --no-cache docker \
+      gcc \
+      git \
+      python3-dev \
+      py3-jmespath \
+      py3-pip \
+      rsync && \
+    rm -rf /var/cache/apk/* && \
+    python3 -m venv /opt/venv && \
+    /opt/venv/bin/python -m pip install --no-cache-dir -r /requirements.txt && \
     /opt/venv/bin/python -m pip cache purge && \
     echo "source /opt/venv/bin/activate" > /root/.profile
 
