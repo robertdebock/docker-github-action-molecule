@@ -14,9 +14,14 @@ RUN apk add --no-cache docker \
                    rsync && \
     rm -rf /var/cache/apk/*
 
+RUN python3 -m venv /opt/venv
+
 ADD requirements.txt /requirements.txt
-RUN python3 -m pip install --break-system-packages --no-cache-dir -r /requirements.txt && \
-    python3 -m pip cache purge
+
+RUN /opt/venv/bin/pip install -r requirements.txt
+
+RUN /opt/venv/bin/pythonpython3 -m pip install --no-cache-dir -r /requirements.txt && \
+    /opt/venv/bin/pythonpython3 -m pip cache purge
 
 ADD cmd.sh /cmd.sh
 CMD sh /cmd.sh
