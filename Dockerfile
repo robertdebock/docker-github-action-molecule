@@ -19,10 +19,8 @@ RUN python3 -m venv /opt/venv
 ADD requirements.txt /requirements.txt
 
 RUN /opt/venv/bin/python -m pip install --no-cache-dir -r /requirements.txt && \
-    /opt/venv/bin/python -m pip cache purge
-
-RUN echo "/bin/sh /opt/venv/bin/activate" > /root/.profile ; \
-    echo "export PATH=/opt/venv/bin:$PATH" >> /root/.profile
+    /opt/venv/bin/python -m pip cache purge && \
+    echo "source /opt/venv/bin/activate" > /root/.profile
 
 ADD cmd.sh /cmd.sh
 CMD sh /cmd.sh
