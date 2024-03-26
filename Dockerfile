@@ -18,7 +18,8 @@ RUN apk add --no-cache docker \
     python3 -m venv /opt/venv && \
     /opt/venv/bin/python -m pip install --no-cache-dir -r /requirements.txt && \
     /opt/venv/bin/python -m pip cache purge && \
-    echo "source /opt/venv/bin/activate" > /root/.profile
+    echo "source /opt/venv/bin/activate" > /root/.profile && \
+    chmod +x /root/.profile
 
 ADD cmd.sh /cmd.sh
 CMD sh /cmd.sh
