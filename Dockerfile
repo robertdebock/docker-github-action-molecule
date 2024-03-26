@@ -21,8 +21,8 @@ ADD requirements.txt /requirements.txt
 RUN /opt/venv/bin/python -m pip install --no-cache-dir -r /requirements.txt && \
     /opt/venv/bin/python -m pip cache purge
 
-RUN echo "/bin/sh /opt/venv/bin/activate" > /etc/profile.d/molecule-venv.sh ; \
-    echo "export PATH=/opt/venv/bin:$PATH" >> /etc/profile.d/molecule-venv.sh
+RUN echo "/bin/sh /opt/venv/bin/activate" > /root/.profile ; \
+    echo "export PATH=/opt/venv/bin:$PATH" >> /root/.profile
 
 ADD cmd.sh /cmd.sh
 CMD sh /cmd.sh
