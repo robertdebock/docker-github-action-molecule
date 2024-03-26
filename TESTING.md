@@ -7,6 +7,7 @@ To test the container before publication, run these steps.
 3. Try lint:
 
 ```shell
+cd tests/ansible-role-test
 docker run --privileged \
   --volume $(pwd):/github/workspace/robertdebock/$(basename $(pwd)):z \
   --volume /var/run/docker.sock:/var/run/docker.sock:z \
